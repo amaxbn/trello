@@ -1,0 +1,15 @@
+<div class="profile" *ngIf="profile$ | async as profile">
+  <img class="profile_avatar" src="">
+  <div class="profile_name">{{profile.shortName}}</div>
+  <span (click)="dropdown()" class="material-icons">arrow_drop_down</span>
+</div>
+<ng-container *ngIf="false">
+  <ul class="dropdown">
+    <li>Profile</li>
+    <li>Carts</li>
+    <li>Settings</li>
+    <li>Support</li>
+    <li>Exit</li>
+  </ul>
+</ng-container>
+

@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .all-board {
+    background-color: #F2F2F2;
+    width: 100px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

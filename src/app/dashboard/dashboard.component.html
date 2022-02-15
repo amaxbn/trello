@@ -1,0 +1,68 @@
+<!--<div class="dashboard">-->
+<!--  <div id="dragMe" class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+<!--  <div class="dashboard_items" cdkDrag></div>-->
+
+  <div class="dashboard-container">
+    <h2>To do</h2>
+
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="source"
+      [cdkDropListConnectedTo]="[doneList, tasksList]"
+      class="dashboard-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="dashboard-box" *ngFor="let item of source" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList, tasksList, inProgressList]"
+      class="dashboard-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="dashboard-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+<div class="dashboard-container">
+  <h2>Tasks</h2>
+
+  <div
+    cdkDropList
+    #tasksList="cdkDropList"
+    [cdkDropListData]="tasks"
+    [cdkDropListConnectedTo]="[todoList, doneList, inProgressList]"
+    class="dashboard-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="dashboard-box" *ngFor="let item of tasks" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
+<div class="dashboard-container">
+  <h2>In progress</h2>
+
+  <div
+    cdkDropList
+    #inProgressList="cdkDropList"
+    [cdkDropListData]="progress"
+    [cdkDropListConnectedTo]="[todoList, doneList, tasksList]"
+    class="dashboard-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="dashboard-box" *ngFor="let item of progress" cdkDrag>{{item}}</div>
+  </div>
+  <div (click)="add('progress')">Add</div>
+</div>
+
+<!--</div>-->
